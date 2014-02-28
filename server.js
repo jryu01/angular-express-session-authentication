@@ -29,7 +29,7 @@ app.configure(function () {
 	app.use(express.cookieParser());
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
-  app.use(express.session({ 
+	app.use(express.session({ 
 		secret: 'thisisthefirstclasssecrets', 
 		store: new mongoStore({ url: config.db, collection: 'sessions'})
 	}));
