@@ -43,19 +43,31 @@ module.exports = function (app) {
 			}
 			req.logIn(user, function(err) {
 				if (err) { return next(err); }
+				user = user.toObject();
+				delete user.password;
 				return res.json(user);
 			});
 		})(req, res, next);
 	});
 
-	app.post('/signout', function (req, res) {
-		req.logout();
-		res.json(200, {success: true, message: "siginout successfull"});
-	});
+	// routes for facebook authentication
+	app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+	// handle the callback after facebook has authenticated the user
+	app.get('/auth/facebook/callback',
+		passport.authenticate('facebook', {
+			successRedirect : '/',
+			failureRedirect : '/'
+		}));	
 
 	// route to check if user is signed in
 	app.get('/signedin', function (req, res) {
 		res.send(req.isAuthenticated() ? req.user : '0');
+	});
+
+	app.post('/signout', function (req, res) {
+		req.logout();
+		res.json(200, {success: true, message: "siginout successfull"});
 	});
 
 	// index.html for all other route

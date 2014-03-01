@@ -11,11 +11,17 @@ var SALT_WORK_FACTOR = 10;
  *
  */
 var UserSchema = new Schema({
+
 	name: String, 
 	email: String,
 	password: {type: String, select: false}, 
-	providers: [],
-	facebook: {}
+
+	facebook: {
+		id: String,
+		name: String,
+		email: String,
+		acessToken: String
+	} 
 });	
 
 /**
@@ -23,14 +29,7 @@ var UserSchema = new Schema({
  */
 UserSchema.pre('save', function(next){ 
   var user = this;
-	var isPwdExist = user.password && user.password.length;
 
-  //Check if neither password or provider is provided
-  if(user.isNew) {
-    if (!isPwdExist && !(user.providers)) {
-      return next(new Error('Invalid password'));
-    }
-  }
   // only hash the password if it has been modified (or is new)
   if (!user.isModified('password')) return next();
 

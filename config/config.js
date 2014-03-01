@@ -9,9 +9,9 @@ module.exports = {
 			name: "expAuth-session"
 		},
 		facebook: {
-			clientID: "",
-			clientScret: "",
-			callbackURL: ""	
+			clientID: "460644617395896",
+			clientSecret: "03f0be755cb52da940870179680222b6",
+			callbackURL: "http://localhost:3000/auth/facebook/callback"	
 		}
 	},
 	test: {},
