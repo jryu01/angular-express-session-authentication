@@ -33,9 +33,9 @@ app.configure(function () {
 		secret: 'thisisthefirstclasssecrets', 
 		store: new mongoStore({ url: config.db, collection: 'sessions'})
 	}));
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(app.router);
+	app.use(passport.initialize());
+	app.use(passport.session());
+	app.use(app.router);
 
 });
 

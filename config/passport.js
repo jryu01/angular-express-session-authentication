@@ -22,9 +22,9 @@ module.exports = function (passport, config) {
 
 	// local sigin in strategy
 	passport.use('local-signin', new LocalStrategy({
-      usernameField: 'email', 
-      passwordField: 'password'
-    },
+			usernameField: 'email', 
+			passwordField: 'password'
+		},
 		function(email, password, done) {
 			User.findOne({ email: email }, '+password', function(err, user) {
 				if (err) { return done(err); }
@@ -40,7 +40,7 @@ module.exports = function (passport, config) {
 				});
 			});
 		}
-	));	
+	));
 
 	// local sigin up strategy
 	passport.use('local-signup', new LocalStrategy({
