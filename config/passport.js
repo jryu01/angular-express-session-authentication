@@ -90,7 +90,7 @@ module.exports = function (passport, config) {
 
 				user.save(function (err) {
 					if (err) { return done(err); }
-					return done(null, newUser);
+					return done(null, user);
 				});
 			}
 		});
