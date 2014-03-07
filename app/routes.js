@@ -23,7 +23,7 @@ module.exports = function (app) {
 	app.get('/signedin', authCtrl.checkSignin);
 
 	// routes for facebook authentication
-	 app.get('/auth/facebook', authCtrl.facebookAuth);
+	app.get('/auth/facebook', authCtrl.facebookAuth);
 	app.get('/auth/facebook/callback', authCtrl.facebookCallback);
 
 	// index.html for all other route
