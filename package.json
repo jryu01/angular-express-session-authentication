@@ -13,9 +13,7 @@
     "bcrypt": "~0.7.6"
   },
   "devDependencies": {
-    "jshint": "~2.4.4",
-    "nodemon": "~1.0.17"
-
+    "jshint": "~2.4.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,7 +30,7 @@
     "node.js",
   "single page web application",
     "angular.js",
-    "backbone.js"
+    "boilerplate"
   ],
   "author": "Jaehwan Ryu",
   "license": "BSD",

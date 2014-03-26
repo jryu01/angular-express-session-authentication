@@ -5,7 +5,7 @@
 
 'use strict';
 
-// generic require siginin middleware
+// generic require signin middleware
 exports.requiresSiginin = function (req, res, next) {
   if (!req.isAuthenticated()) {
     var info = {

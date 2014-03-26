@@ -1,5 +1,5 @@
 /**
- * passport.js
+ * config/passport.js
  * passport configuration file
  */
 
@@ -23,12 +23,12 @@ module.exports = function (passport, config) {
     });
   }); 
 
-  // local sigin in strategy
-  passport.use('local-signin', new LocalStrategy({
+  // Local Strategy
+  passport.use(new LocalStrategy({
     usernameField: 'email', 
     passwordField: 'password'
   },
-  function(email, password, done) {
+  function (email, password, done) {
     User.findOne({ email: email }, '+password', function(err, user) {
       if (err) { return done(err); }
       if (!user) {
@@ -44,32 +44,7 @@ module.exports = function (passport, config) {
     });
   }));
 
-  // local sigin up strategy
-  passport.use('local-signup', new LocalStrategy({
-    usernameField: 'email', 
-    passwordField: 'password'
-  }, 
-  function (email, password, done) {
-    User.findOne({ email: email }, function (err, user) {
-      if (err) { return done(err); }
-      if (user) {
-        return done(null, false, { message: 'User already exist'});
-      }
-      if (!password  || !password.length) {
-        return done(null, false, { message: 'Invalid password'});
-      }     
-      user = new User({
-        email: email,
-        password: password
-      });
-      user.save(function (err, user) {
-        if (err) { return done(err); }
-        return done(null, user);
-      });
-    });
-  }));
-
-  //Facebook Strategy
+  // Facebook Strategy
   passport.use(new FacebookStrategy({
 
     clientID: config.facebook.clientID,

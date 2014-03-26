@@ -1,4 +1,5 @@
 /**
+ * app/models/user.js
  * user model
  */
 
@@ -14,7 +15,7 @@ var mongoose = require('mongoose'),
  *
  */
 var UserSchema = new Schema({
-  name: String, 
+  
   email: String,
   password: {type: String, select: false}, 
 
