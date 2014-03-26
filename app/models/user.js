@@ -1,17 +1,19 @@
 /**
  * user model
  */
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt');
-var SALT_WORK_FACTOR = 10;
+
+'use strict';
+
+var mongoose = require('mongoose'),
+		Schema = mongoose.Schema,
+		bcrypt = require('bcrypt'),
+		SALT_WORK_FACTOR = 10;
 
 /**
  * User Schema
  *
  */
 var UserSchema = new Schema({
-
 	name: String, 
 	email: String,
 	password: {type: String, select: false}, 

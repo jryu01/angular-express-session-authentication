@@ -2,6 +2,8 @@
 * app/controllers/user.js
 */
 
+'use strict';
+
 var User = require('../models/user');
 
 function list(req, res) {

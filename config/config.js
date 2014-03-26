@@ -2,6 +2,9 @@
  * configuration file
  *
  */
+
+'use strict';
+
 module.exports = {
 	development: {
 		db: "mongodb://localhost/expAuth",

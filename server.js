@@ -3,16 +3,18 @@
  *
  */
 
+'use strict';
+
 // set up ==================================================
-var http = require('http');
-var express = require('express');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var env = process.env.NODE_ENV || 'development'; // env variable
-var config = require('./config/config')[env]; // config file
-var mongoStore = require('connect-mongo')(express); // mongodb session store
-var app = express(); // express app
-var server = http.createServer(app); // server
+var http = require('http'),
+		express = require('express'),
+		mongoose = require('mongoose'),
+		passport = require('passport'),
+		env = process.env.NODE_ENV || 'development', // env variable
+		config = require('./config/config')[env], // config file
+		mongoStore = require('connect-mongo')(express), // mongodb session store
+		app = express(),// express app
+		server = http.createServer(app); // server
 
 // configuration ===========================================
 

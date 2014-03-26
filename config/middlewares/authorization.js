@@ -1,7 +1,10 @@
 /**
- * middle for securing routes
+ * middleware for securing routes
  *
  */
+
+'use strict';
+
 // generic require siginin middleware
 exports.requiresSiginin = function (req, res, next) {
 	if (!req.isAuthenticated()) {

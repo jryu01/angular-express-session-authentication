@@ -2,6 +2,8 @@
 * app/controllers/auth.js
 */
 
+'use strict';
+
 var passport = require('passport');
 
 // authentication controller functions 
@@ -63,6 +65,7 @@ function facebookCallback() {
 			failureRedirect : '/'
 		});
 }
+
 // public functions and variables 
 exports.signin = signin;
 exports.signup = signup;

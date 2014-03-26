@@ -3,10 +3,12 @@
  * app/routes.js
  */
 
-var passport = require('passport');
-var auth = require('../config/middlewares/authorization');
-var authCtrl = require('./controllers/auth');
-var userCtrl = require('./controllers/user');
+'use strict';
+
+var passport = require('passport'),
+		auth = require('../config/middlewares/authorization'),
+		authCtrl = require('./controllers/auth'),
+		userCtrl = require('./controllers/user');
 
 module.exports = function (app) {
 

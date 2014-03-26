@@ -2,9 +2,12 @@
  * passport.js
  * passport configuration file
  */
-var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var User = require('../app/models/user');
+
+'use strict';
+
+var LocalStrategy = require('passport-local').Strategy,
+		FacebookStrategy = require('passport-facebook').Strategy,
+		User = require('../app/models/user');
 
 module.exports = function (passport, config) {
 		
@@ -84,7 +87,8 @@ module.exports = function (passport, config) {
 				user = new User();
 
 				user.facebook.id = profile.id;
-				user.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
+				user.facebook.name = profile.name.givenName + 
+														' ' + profile.name.familyName;
 				user.facebook.email = profile.emails[0].value;
 				user.facebook.accessToken = accessToken;
 
