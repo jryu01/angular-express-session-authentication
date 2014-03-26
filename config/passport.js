@@ -5,9 +5,9 @@
 
 'use strict';
 
-var LocalStrategy = require('passport-local').Strategy,
-    FacebookStrategy = require('passport-facebook').Strategy,
-    User = require('../app/models/user');
+var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var User = require('../app/models/user');
 
 module.exports = function (passport, config) {
     

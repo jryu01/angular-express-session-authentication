@@ -4,8 +4,8 @@
 
 'use strict';
 
-var passport = require('passport'),
-    User = require('../models/user');
+var passport = require('passport');
+var User = require('../models/user');
 
 // authentication controller functions 
 
@@ -33,20 +33,7 @@ function signin(req, res, next) {
 }
 
 function signup(req, res, next) {
-  // passport.authenticate('local-signup', function (err, user, info) {
-  // passport.authenticate('local', function (err, user, info) {
-  //   if (err) { return next(err); }
-  //   if (!user) {
-  //     req.session.message = [info.message];
-  //     return res.send(401, { sucess: false, info: info});
-  //   }
-  //   req.logIn(user, function(err) {
-  //     if (err) { return next(err); }
-  //     user = user.toObject();
-  //     delete user.password;
-  //     return res.send(user);
-  //   });
-  // })(req, res, next);
+
   var email = req.body.email;
   var password = req.body.password;
 
@@ -81,31 +68,6 @@ function signup(req, res, next) {
     });
   });
 }
-
-  // local sigin up strategy
-  // passport.use('local-signup', new LocalStrategy({
-  //   usernameField: 'email', 
-  //   passwordField: 'password'
-  // }, 
-  // function (email, password, done) {
-  //   User.findOne({ email: email }, function (err, user) {
-  //     if (err) { return done(err); }
-  //     if (user) {
-  //       return done(null, false, { message: 'User already exist'});
-  //     }
-  //     if (!password  || !password.length) {
-  //       return done(null, false, { message: 'Invalid password'});
-  //     }     
-  //     user = new User({
-  //       email: email,
-  //       password: password
-  //     });
-  //     user.save(function (err, user) {
-  //       if (err) { return done(err); }
-  //       return done(null, user);
-  //     });
-  //   });
-  // }));
 
 function signout(req, res) {
   req.logout();
