@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Hello</title>
+  <meta charset="UTF-8">
+  <title>Hello</title>
 </head>
 <body>
-	<h3>signup (sign automatically when signed up)</h3>
-	<form action="/signup" method="post" accept-charset="utf-8" target="target" >
-			<input type="text" name="email" />
-			<input type="password" name="password" />
-			<input type="submit" value="signup" />
-	</form>
-	<h3>signin</h3>
-	<form action="/signin" method="post" accept-charset="utf-8" target="target">
-			<input type="text" name="email" />
-			<input type="password" name="password" />
-			<input type="submit" value="submit" />
-	</form>
-	<h3>Facebook signin</h3>
-	<form action="/auth/facebook" method="get" accept-charset="utf-8">
-			<input type="submit" value="Sigin in with facebook" />
-	</form>
-	<br />
-	<br />
-	<form action="/api/users" method="get" accept-charset="utf-8" target="target">
-			<input type="submit" value="Get Secured Resources" />
-	</form>
-	<br />
-	<form action="/signout" method="post" accept-charset="utf-8" target="target">
-			<input type="submit" name="signout" value="signout" />
-	</form>
-	<form action="/signedin" method="get" accept-charset="utf-8" target="target">
-			<input type="submit" value="isSignedIn" />
-	</form>
-	<iframe id="target" name="target" style="" width="100%" height="500px"></iframe>
+  <h3>signup (sign automatically when signed up)</h3>
+  <form action="/signup" method="post" accept-charset="utf-8" target="target" >
+      <input type="text" name="email" />
+      <input type="password" name="password" />
+      <input type="submit" value="signup" />
+  </form>
+  <h3>signin</h3>
+  <form action="/signin" method="post" accept-charset="utf-8" target="target">
+      <input type="text" name="email" />
+      <input type="password" name="password" />
+      <input type="submit" value="submit" />
+  </form>
+  <h3>Facebook signin</h3>
+  <form action="/auth/facebook" method="get" accept-charset="utf-8">
+      <input type="submit" value="Sigin in with facebook" />
+  </form>
+  <br />
+  <br />
+  <form action="/api/users" method="get" accept-charset="utf-8" target="target">
+      <input type="submit" value="Get Secured Resources" />
+  </form>
+  <br />
+  <form action="/signout" method="post" accept-charset="utf-8" target="target">
+      <input type="submit" name="signout" value="signout" />
+  </form>
+  <form action="/signedin" method="get" accept-charset="utf-8" target="target">
+      <input type="submit" value="isSignedIn" />
+  </form>
+  <iframe id="target" name="target" style="" width="100%" height="500px"></iframe>
 </body>
 </html>

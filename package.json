@@ -13,8 +13,8 @@
     "bcrypt": "~0.7.6"
   },
   "devDependencies": {
-	  "jshint": "~2.4.4",
-	  "nodemon": "~1.0.17"
+    "jshint": "~2.4.4",
+    "nodemon": "~1.0.17"
 
   },
   "scripts": {
@@ -30,7 +30,7 @@
     "passport.js",
     "rest",
     "node.js",
-	"single page web application",
+  "single page web application",
     "angular.js",
     "backbone.js"
   ],
