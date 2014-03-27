@@ -29,7 +29,8 @@ module.exports = function (passport, config) {
     passwordField: 'password'
   },
   function (email, password, done) {
-    User.findOne({ email: email }, '+password', function(err, user) {
+    User.
+    findOne({ 'local.email': email }, '+local.password', function(err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Unknown email' });

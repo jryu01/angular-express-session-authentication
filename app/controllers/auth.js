@@ -8,7 +8,6 @@ var passport = require('passport');
 var User = require('../models/user');
 
 // authentication controller functions 
-
 var facebookAuth = passport.authenticate('facebook', { scope : 'email' });
 var facebookCallback = passport.authenticate('facebook', { 
   successRedirect : '/',
@@ -16,7 +15,6 @@ var facebookCallback = passport.authenticate('facebook', {
 });
 
 function signin(req, res, next) {
-  // passport.authenticate('local-signin', function (err, user, info) {
   passport.authenticate('local', function (err, user, info) {
     if (err) { return next(err); }
     if (!user) {
@@ -25,9 +23,7 @@ function signin(req, res, next) {
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      user = user.toObject();
-      delete user.password;
-      return res.send(user);
+      return res.send(user.getSafeJSON());
     });
   })(req, res, next);
 }
@@ -44,7 +40,7 @@ function signup(req, res, next) {
     return res.send(400, { message: 'password is not valid' });
   }
 
-  User.findOne({ email: email }, function (err, user) {
+  User.findOne({ 'local.email': email }, function (err, user) {
     if (err) { return next(err); }
 
     // check if user is already exists
@@ -53,17 +49,16 @@ function signup(req, res, next) {
     }
 
     // create and save a new user
-    user = new User({
-      email: email,
-      password: password
-    });
+    user = new User();
+    user.local.email = email;
+    user.local.password = password;
 
     user.save(function (err, user) {
       if (err) { return next(err); }
 
       // login after user is registered and saved
       req.logIn(user, function (err) {
-        return res.send(user);
+        return res.send(user.getSafeJSON());
       });
     });
   });
@@ -75,7 +70,7 @@ function signout(req, res) {
 }
 
 function checkSignin(req, res) {
-  res.send(req.isAuthenticated() ? req.user : '0');
+  res.send(req.isAuthenticated() ? req.user.getSafeJSON() : '0');
 }
 
 function facebookAuth() {
