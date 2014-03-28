@@ -1,38 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hello</title>
-</head>
-<body>
-  <h3>signup (sign automatically when signed up)</h3>
-  <form action="/signup" method="post" accept-charset="utf-8" target="target" >
-      <input type="text" name="email" />
-      <input type="password" name="password" />
-      <input type="submit" value="signup" />
-  </form>
-  <h3>signin</h3>
-  <form action="/signin" method="post" accept-charset="utf-8" target="target">
-      <input type="text" name="email" />
-      <input type="password" name="password" />
-      <input type="submit" value="submit" />
-  </form>
-  <h3>Facebook signin</h3>
-  <form action="/auth/facebook" method="get" accept-charset="utf-8">
-      <input type="submit" value="Sigin in with facebook" />
-  </form>
-  <br />
-  <br />
-  <form action="/api/users" method="get" accept-charset="utf-8" target="target">
-      <input type="submit" value="Get Secured Resources" />
-  </form>
-  <br />
-  <form action="/signout" method="post" accept-charset="utf-8" target="target">
-      <input type="submit" name="signout" value="signout" />
-  </form>
-  <form action="/signedin" method="get" accept-charset="utf-8" target="target">
-      <input type="submit" value="isSignedIn" />
-  </form>
-  <iframe id="target" name="target" style="" width="100%" height="500px"></iframe>
-</body>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
+
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body ng-app="expAuth-session">
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <div ng-view=""></div>
+
+        <!-- <script src="bower_components/jquery/jquery.js"></script> -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <!-- <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script> -->
+
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
 </html>

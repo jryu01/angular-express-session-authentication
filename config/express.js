@@ -7,13 +7,14 @@
 
 var express = require('express');
 var mongoStore = require('connect-mongo')(express); // mongodb session store
+var path = require('path');
 
 module.exports = function (app, config, passport) {
 
   // express app configuration
   app.configure(function () {
     app.set('port', process.env.PORT || 3000);
-    app.use(express.static(__dirname + '/public'));
+    app.use(express.static(path.join(__dirname, '..', '/public')));
     app.use(express.logger('dev'));
     app.use(express.cookieParser());
     app.use(express.bodyParser());
