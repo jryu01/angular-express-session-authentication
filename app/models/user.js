@@ -25,7 +25,7 @@ var UserSchema = new Schema({
     id: String,
     name: String,
     email: String,
-    acessToken: { String: String, select: false }
+    acessToken: { type: String, select: false }
   } 
 }); 
 
