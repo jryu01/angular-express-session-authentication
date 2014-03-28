@@ -8,4 +8,5 @@ It is designed to support securing restful routes and provide authentication str
 To run this example with mongodb already installed and running: 
 
 1. `npm install`
+1. `bower install`
 2. `node server.js`
