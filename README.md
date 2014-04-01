@@ -1,10 +1,9 @@
-ExpAuth-session
+angular-express-session-authentication
 =======================
 
-This code is an implementation of node.js express server for single page application with traditional cookie-session based authentication to with passport.js.
+This code is an implementation of traditional cookie-session based authentication with node.js express server with angularjs client app.
 
-It is designed to support securing restful routes and provide authentication strategies for angular.js or backbone.js project and it can be good starting point to start and build server for angular.js or backbone.js projects.
-
+It is designed to support securing restful routes and provide authentication strategies for angular.js project on node.js express server with mongodb (MEAN stack) and it can be good starting point to start and build an app with MEAN.
 To run this example with mongodb already installed and running: 
 
 1. `npm install`
