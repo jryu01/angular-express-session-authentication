@@ -6,7 +6,7 @@
 'use strict';
 
 // generic require signin middleware
-exports.requiresSiginin = function (req, res, next) {
+exports.requiresSignin = function (req, res, next) {
   if (!req.isAuthenticated()) {
     var info = {
       success: false,

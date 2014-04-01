@@ -13,7 +13,7 @@ var userCtrl = require('./controllers/user');
 module.exports = function (app) {
 
   // secured restful api routes
-  app.get('/api/users', auth.requiresSiginin, userCtrl.list);
+  app.get('/api/users', auth.requiresSignin, userCtrl.list);
   
   
   // routes for sign in,  sigin up, and signout processes
