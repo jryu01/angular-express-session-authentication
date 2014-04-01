@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="styles/main.css">
     <script type="text/javascript">
-    
+    // handle url change after facebook login 
     if (window.location.href.indexOf('#_=_') > 0) {
       window.location = window.location.href.replace(/#.*/, '');
     }
@@ -30,13 +30,12 @@
     <div ui-view></div>
 
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/services.js"></script>
-    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/home.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

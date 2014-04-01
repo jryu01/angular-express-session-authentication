@@ -22,6 +22,7 @@ function signin(req, res, next) {
       req.session.message = [info.message];
       return res.send(401, { success: false, info: info });
     }
+    // if user, Log in
     req.logIn(user, function(err) {
       if (err) { return next(err); }
       return res.send(user.getSafeJSON());
@@ -34,13 +35,14 @@ function signup(req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
 
+  // validate email and password
   if(!email || !email.length) {
     return res.send(400, { message: 'email is not valid' });
   }
   if(!password || !password.length) {
     return res.send(400, { message: 'password is not valid' });
   }
-
+  
   User.findOne({ 'local.email': email }, function (err, user) {
     if (err) { return next(err); }
 

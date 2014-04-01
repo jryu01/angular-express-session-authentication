@@ -1,24 +1,11 @@
 'use strict';
 
 angular.module('expAuth-session')
-.factory('Auth', ['$http', '$cookieStore', function ($http, $cookieStore) {
-
-  var currentUser = $cookieStore.get('user') || null;
-  console.log(currentUser);
-  $cookieStore.remove('user');
-
+.factory('Auth', ['$http', function ($http) {
   return {
-
-    isSignedIn: function () {
-      return !!currentUser;
-    },
     signout: function (success, error) {
-      $http.post('/signout').success(function () {
-
-        success();
-      }).error(error);
-    },
-    user: currentUser
+      $http.post('/signout').success(success).error(error);
+    }
   };
 }])
 .factory('Users', ['$http', function ($http) {
