@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('expAuth-session', ['ui.router'])
+angular.module('angularSessionAuthApp', ['ui.router'])
 .config(['$stateProvider','$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
   //================================================

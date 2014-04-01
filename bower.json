@@ -1,5 +1,5 @@
 {
-  "name": "expAuth-session",
+  "name": "angular-express-session-authentication",
   "version": "0.0.0",
   "homepage": "https://github.com/jryu01/expAuth-session",
   "authors": [
@@ -17,7 +17,6 @@
   "dependencies": {
     "angular-bootstrap": "~0.10.0",
     "bootstrap-css-only": "~3.1.1",
-    "angular-cookies": "~1.2.15",
     "angular": "~1.2.15"
   }
 }

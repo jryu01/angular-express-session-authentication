@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('expAuth-session')
+angular.module('angularSessionAuthApp')
 .factory('Auth', ['$http', function ($http) {
   return {
     signout: function (success, error) {

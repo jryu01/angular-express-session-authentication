@@ -11,9 +11,9 @@ var rootPath = path.normalize(__dirname + '/..');
 module.exports = {
   development: {
     root: rootPath, 
-    db: "mongodb://localhost/expAuth",
+    db: "mongodb://localhost/session-auth",
     app: {
-      name: "expAuth-session"
+      name: "angular-express-session-authentication"
     },
     facebook: {
       clientID: "460644617395896",
