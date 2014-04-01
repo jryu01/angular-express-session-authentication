@@ -4,13 +4,15 @@
   "description": "express server with authentication for single page web app",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "~0.7.6",
     "connect-mongo": "~0.3.3",
+    "consolidate": "^0.10.0",
+    "express": "~3.4.8",
+    "mongoose": "~3.8.8",
     "passport": "~0.2.0",
     "passport-facebook": "~0.1.5",
-    "mongoose": "~3.8.8",
     "passport-local": "~0.1.6",
-    "express": "~3.4.8",
-    "bcrypt": "~0.7.6"
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "jshint": "~2.4.4"
@@ -28,7 +30,7 @@
     "passport.js",
     "rest",
     "node.js",
-  "single page web application",
+    "single page web application",
     "angular.js",
     "boilerplate"
   ],

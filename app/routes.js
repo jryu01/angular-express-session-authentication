@@ -28,6 +28,11 @@ module.exports = function (app) {
   app.get('/auth/facebook', authCtrl.facebookAuth);
   app.get('/auth/facebook/callback', authCtrl.facebookCallback);
 
-  // index.html for all other route
-  app.get('*', function (req, res) { res.sendfile('./public/index.html'); });
+  // serve index.html for all other route
+  app.all('/*', function (req, res) {
+    var user = req.user ? { id: req.user.id, role: "user" } : null;
+    res.cookie('user', JSON.stringify(user));
+
+    res.render('index');
+  }); 
 };

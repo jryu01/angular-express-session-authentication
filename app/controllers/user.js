@@ -9,11 +9,11 @@ var User = require('../models/user');
 function list(req, res) {
 	User.find(function (err, users) {
 		if (err) return res.send(500);
-		res.json(users);
+		res.send(users);
 	});	
 }
 
-// function get(req, res){
+// function get(req, res){:w
 
 // }
 

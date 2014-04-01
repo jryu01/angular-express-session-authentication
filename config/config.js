@@ -5,8 +5,12 @@
 
 'use strict';
 
+var path = require('path');
+var rootPath = path.normalize(__dirname + '/..');
+
 module.exports = {
   development: {
+    root: rootPath, 
     db: "mongodb://localhost/expAuth",
     app: {
       name: "expAuth-session"
