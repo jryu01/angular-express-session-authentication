@@ -6,7 +6,7 @@ angular.module('angularSessionAuthApp', ['ui.router'])
   //================================================
   // Check if the user is connected
   //================================================
-  var checkSignin = function ($q, $timeout, $http, $location, $rootScope) {
+  var checkSignin = function ($q, $timeout, $http, $state, $rootScope) {
     // Initialize a new promise
     var deferred = $q.defer();
 
@@ -21,7 +21,7 @@ angular.module('angularSessionAuthApp', ['ui.router'])
       } else {
         $rootScope.message = 'You need to log in.';
         $timeout(function () { deferred.reject(); }, 0);
-        $location.url('/login');
+        $state.go('public.login');
       }
     });
     return deferred.promise;
@@ -38,7 +38,6 @@ angular.module('angularSessionAuthApp', ['ui.router'])
       template: "<div ui-view></div>"
     })
     .state('public.login', {
-      url: '/login',
       templateUrl: '/views/partials/login.html'
     });
 
@@ -64,7 +63,7 @@ angular.module('angularSessionAuthApp', ['ui.router'])
   // An interceptor for AJAX errors
   //================================================
 
-  $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
+  $httpProvider.interceptors.push(['$q', '$injector', function($q, $injector) {
     return function (promise) {
       return promise.then(
         // Successs
@@ -74,7 +73,8 @@ angular.module('angularSessionAuthApp', ['ui.router'])
         // Error 
         function (response) {
           if (response.status === 401) {
-            $location.url('login');
+            var $state = $injector.get('$state');
+            $state.go('public.login');
             return $q.reject(response);
           }
         }
