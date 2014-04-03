@@ -18,16 +18,38 @@ var UserSchema = new Schema({
 
   local: {
     email: String,
-    password: { type: String, select: false }, 
+    password: String, 
   },
 
   facebook: {
     id: String,
     name: String,
     email: String,
-    acessToken: { type: String, select: false }
+    acessToken: String,
   } 
 }); 
+
+/**
+ * Add toJSON option to transform document before returnig the result
+ */
+UserSchema.options.toJSON = {
+  transform: function (doc, ret, options) {
+
+    // rewmove sensitive data
+    if (ret.local && ret.local.password) {
+      delete ret.local.password;
+    }
+    if (ret.facebook && ret.facebook.accessToken) {
+      delete ret.facebook.accessToken;
+    }
+
+    // add id feild and remove _id and __v
+    ret.id = ret._id;
+
+    delete ret._id;
+    delete ret.__v;
+  }
+};
 
 /**
  * Pre-save hook for password validation and hashing
@@ -54,27 +76,11 @@ UserSchema.pre('save', function(next){
 });
 
 UserSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.
-  compare(candidatePassword, this.local.password, function(err, isMatch) {
+  bcrypt
+  .compare(candidatePassword, this.local.password, function(err, isMatch) {
       if (err) return cb(err);
       cb(null, isMatch);
   });
-};
-UserSchema.methods.getSafeJSON = function () {
-
-  var user = this.toObject();
-
-  user.id = user._id;
-
-  delete user._id;
-  delete user.__v;
-  if (user.local && user.local.password) {
-    delete user.local.password;
-  }
-  if (user.facebook && user.facebook.accessToken) {
-    delete user.facebook.accessToken;
-  }
-  return user;
 };
 
 module.exports = mongoose.model('User', UserSchema);

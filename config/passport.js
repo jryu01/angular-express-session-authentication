@@ -30,7 +30,7 @@ module.exports = function (passport, config) {
   },
   function (email, password, done) {
     User.
-    findOne({ 'local.email': email }, '+local.password', function(err, user) {
+    findOne({ 'local.email': email }, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Unknown email' });

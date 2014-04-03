@@ -25,7 +25,7 @@ function signin(req, res, next) {
     // if user, Log in
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.send(user.getSafeJSON());
+      return res.send(user.toJSON());
     });
   })(req, res, next);
 }
@@ -61,7 +61,7 @@ function signup(req, res, next) {
 
       // login after user is registered and saved
       req.logIn(user, function (err) {
-        return res.send(user.getSafeJSON());
+        return res.send(user.toJSON());
       });
     });
   });
@@ -73,7 +73,7 @@ function signout(req, res) {
 }
 
 function checkSignin(req, res) {
-  res.send(req.isAuthenticated() ? req.user.getSafeJSON() : '0');
+  res.send(req.isAuthenticated() ? req.user.toJSON() : '0');
 }
 
 function facebookAuth() {
