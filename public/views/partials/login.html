@@ -2,7 +2,46 @@
 <br>
 <br>
 <div class="well center-block" style="width: 500px">
-  <h2>Please Signin</h2>
+  <h2>Please Sign In</h2>
+  <form name="loginForm" novalidate ng-submit="signin();">
+    <label>Email: </label>
+    <input name="email" 
+           class="form-control" 
+           type="email" 
+           ng-model="signinData.email"
+           placeholder="Email" 
+           required> 
+
+    <label>Password: </label>
+    <input name="password" 
+           class="form-control" 
+           type="password" 
+           ng-model="signinData.password"
+           placeholder="Password" 
+           required> 
+    <br>
+    <div ng-show="loginForm.email.$invalid && loginForm.email.$dirty">
+      <p ng-show="loginForm.email.$error.email"
+         style="padding:5px" class="bg-danger">Your email is not valid</p>
+      <p ng-show="loginForm.email.$error.required"
+         style="padding:5px" class="bg-danger">Your email is required</p>
+    </div>
+    <div ng-show="loginForm.password.$invalid && loginForm.password.$dirty">
+      <p ng-show="loginForm.password.$error.required"
+         style="padding:5px" class="bg-danger">Your password is required</p>
+    </div>
+    <div ng-show="loginForm.serverError">
+      <p style="padding:5px" class="bg-danger"> {{ loginForm.serverError.message }}</p>
+    </div>
+    <input class="form-control btn btn-primary" 
+           type="submit" 
+           value="Sign In"
+           ng-disabled="loginForm.$invalid"> 
+  </form>
+  <h5 class="text-center"> or </h5>
+  <a target="_self" ng-href="/auth/facebook" class="btn btn-primary btn-block">Sign In with facebook</a>
   <br>
-  <a target="_self" href="/auth/facebook" class="btn btn-lg btn-primary btn-block">Signin with facebook</a>
+  <p class="text-center">
+    <a ng-href="/register">Register if you don't hava an account</a>
+  </p>
 </div>

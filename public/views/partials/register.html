@@ -1,0 +1,40 @@
+<br>
+<br>
+<div class="well center-block" style="width: 500px">
+  <h2>Please Sign Up</h2>
+  <form name="signupForm" novalidate ng-submit="signup();">
+    <label>Email: </label>
+    <input name="email" 
+           class="form-control" 
+           type="email" 
+           ng-model="signupData.email"
+           placeholder="Email" 
+           required> 
+
+    <label>Password: </label>
+    <input name="password" 
+           class="form-control" 
+           type="password" 
+           ng-model="signupData.password"
+           placeholder="Password" 
+           required> 
+    <br>
+    <div ng-show="signupForm.email.$invalid && signupForm.email.$dirty">
+      <p ng-show="signupForm.email.$error.email"
+         style="padding:5px" class="bg-danger">Your email is not valid</p>
+      <p ng-show="signupForm.email.$error.required"
+         style="padding:5px" class="bg-danger">Your email is required</p>
+    </div>
+    <div ng-show="signupForm.password.$invalid && signupForm.password.$dirty">
+      <p ng-show="signupForm.password.$error.required"
+         style="padding:5px" class="bg-danger">Your password is required</p>
+    </div>
+    <div ng-show="signupForm.serverError">
+      <p style="padding:5px" class="bg-danger"> {{ signupForm.serverError.message }}</p>
+    </div>
+    <input class="form-control btn btn-primary" 
+           type="submit" 
+           value="Sign Up"
+           ng-disabled="signupForm.$invalid"> 
+  </form>
+</div>

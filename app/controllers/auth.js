@@ -19,8 +19,7 @@ function signin(req, res, next) {
   passport.authenticate('local', function (err, user, info) {
     if (err) { return next(err); }
     if (!user) {
-      req.session.message = [info.message];
-      return res.send(401, { success: false, info: info });
+      return res.send(401, { success: false, message: info.message });
     }
     // if user, Log in
     req.logIn(user, function(err) {

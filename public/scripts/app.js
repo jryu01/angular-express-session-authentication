@@ -38,7 +38,14 @@ angular.module('angularSessionAuthApp', ['ui.router'])
       template: "<div ui-view></div>"
     })
     .state('public.login', {
-      templateUrl: '/views/partials/login.html'
+      url: '/login',
+      templateUrl: '/views/partials/login.html',
+      controller: 'LoginController'
+    })
+    .state('public.register', {
+      url: '/register',
+      templateUrl: '/views/partials/register.html',
+      controller: 'RegisterController'
     });
 
   // Regular user routes

@@ -16,8 +16,8 @@ module.exports = {
       name: "angular-express-session-authentication"
     },
     facebook: {
-      clientID: "460644617395896",
-      clientSecret: "03f0be755cb52da940870179680222b6",
+      clientID: "481914391941067",
+      clientSecret: "0a1cb8b41c20ed13490b1ea494e5ec03",
       callbackURL: "http://localhost:3000/auth/facebook/callback" 
     }
   },
